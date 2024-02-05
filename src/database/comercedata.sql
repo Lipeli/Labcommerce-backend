@@ -36,6 +36,8 @@ CREATE TABLE purchases (
     total_price TEXT NOT NULL,
     created_at TEXT NOT NULL,
     FOREIGN KEY (buyer) REFERENCES buyer(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
 INSERT INTO purchases (id, buyer, total_price, created_at)
@@ -63,6 +65,8 @@ CREATE TABLE purchases_products (
     quantity INTEGER NOT NULL,
     FOREIGN KEY (purchase_id) REFERENCES purchases(id),
     FOREIGN KEY (products_id) REFERENCES products(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 
 );
 
